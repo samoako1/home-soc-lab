@@ -30,10 +30,11 @@ A cybersecurity home lab built using VirtualBox, Windows 11, Sysmon, and Wazuh t
 
 ## Investigations
 
-| Scenario | Detection Source | Event ID | Description |
-|---|---|---|---|
-| Process Creation | Sysmon | Event ID 1 | Monitored process execution, command-line arguments, and parent-child relationships |
-| PowerShell Execution | Sysmon | Event ID 1 | Analyzed PowerShell activity and command-line execution |
-| Suspicious Process Creation | Sysmon | Event ID 1 | Investigated unusual processes, execution paths, and parent-child process relationships |
-| Failed Login Attempts | Windows Security Logs + Wazuh SIEM | Event ID 4625 | Detected unsuccessful authentication attempts |
-| Account Creation | Windows Security Logs | Event ID 4720 | Monitored creation of new user accounts |
+| Scenario | Log Source | Event ID | Detection Platform | MITRE ATT&CK | Description |
+|----------|------------|----------|-------------------|--------------|-------------|
+| Process Creation | Sysmon | Event ID 1 | Wazuh | T1059 | Monitored process execution, command-line arguments, and parent-child relationships. |
+| PowerShell Execution | Sysmon | Event ID 1 | Wazuh | T1059.001 | Analyzed PowerShell activity and command-line execution. |
+| Suspicious Process Execution | Sysmon | Event ID 1 | Wazuh | T1059 | Investigated unusual processes, execution paths, and parent-child relationships. |
+| Failed Login Attempts | Windows Security Logs | Event ID 4625 | Wazuh | T1110 | Detected unsuccessful authentication attempts and potential brute-force activity. |
+| User Account Creation | Windows Security Logs | Event ID 4720 | Wazuh | T1136 | Monitored creation of new user accounts and account management activity. |
+| Registry Modification | Wazuh FIM / Syscheck | Rule ID 752 | Wazuh | T1112 | Detected Windows registry value additions and modifications through File Integrity Monitoring. |

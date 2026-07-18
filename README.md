@@ -8,7 +8,7 @@ A cybersecurity home lab built using VirtualBox, Windows 11, Sysmon, and Wazuh t
 - Virtualization: VirtualBox
 - Endpoint: Windows 11 Home
 - Monitoring: Sysmon
-- SIEM: Wazuh (planned)
+- SIEM: Wazuh 
 
 ## Objectives
 
@@ -25,8 +25,8 @@ A cybersecurity home lab built using VirtualBox, Windows 11, Sysmon, and Wazuh t
 - [x] Created Windows 11 VM
 - [x] Installed Sysmon
 - [x] Verified Sysmon Event ID 1 logging
-- [ ] Configure Wazuh
-- [ ] Create security alerts
+- [x] Configure Wazuh
+- [x] Create security alerts
 
 ## Investigations
 
@@ -35,5 +35,5 @@ A cybersecurity home lab built using VirtualBox, Windows 11, Sysmon, and Wazuh t
 | Process Creation | Sysmon | Event ID 1 | Monitored process execution, command-line arguments, and parent-child relationships |
 | PowerShell Execution | Sysmon | Event ID 1 | Analyzed PowerShell activity and command-line execution |
 | Suspicious Process Creation | Sysmon | Event ID 1 | Investigated unusual processes, execution paths, and parent-child process relationships |
-| Failed Login Attempts | Windows Security Logs | Event ID 4625 | Detected unsuccessful authentication attempts |
+| Failed Login Attempts | Windows Security Logs + Wazuh SIEM | Event ID 4625 | Detected unsuccessful authentication attempts |
 | Account Creation | Windows Security Logs | Event ID 4720 | Monitored creation of new user accounts |

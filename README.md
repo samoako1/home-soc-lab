@@ -1,12 +1,12 @@
 # Home SOC Lab
 
-Built a home SOC environment using VirtualBox, Windows 11, Sysmon, and Wazuh to collect and analyze security telemetry. Created detections for PowerShell execution, failed logons, user account creation, event log clearing, and registry modifications mapped to MITRE ATT&CK techniques.
+Built a home SOC environment using VMware Workstation Pro, Windows 11, Sysmon, and Wazuh to collect and analyze security telemetry. Created detections for PowerShell execution, failed logons, user account creation, event log clearing, and registry modifications mapped to MITRE ATT&CK techniques.
 
 ## Current Environment
 
-- Host: Intel MacBook
-- Virtualization: VirtualBox
-- Endpoint: Windows 11 Home
+- Host: Windows 11 Home
+- Virtualization: VMware Workstation Pro
+- Endpoint: Windows 11 Pro
 - Monitoring: Sysmon
 - SIEM: Wazuh 
 
@@ -23,7 +23,7 @@ Built a home SOC environment using VirtualBox, Windows 11, Sysmon, and Wazuh to 
 
 ## Completed
 
-- [x] Installed VirtualBox
+- [x] Installed VMware Workstation Pro
 - [x] Created Windows 11 VM
 - [x] Installed Sysmon
 - [x] Verified Sysmon Event ID 1 logging

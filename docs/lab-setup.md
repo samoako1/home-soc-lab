@@ -11,17 +11,17 @@ The lab consists of a Windows endpoint generating security telemetry and an Ubun
 # Lab Architecture
 
 ```
-                 VirtualBox Host Machine
-                    macOS Intel
+                 Host Machine
+                    Windows 11 Home
 
                          |
                          |
-                 VirtualBox Network
+                 VMware Workstation Pro
 
         +--------------------------------+
         |                                |
         |                                |
- Windows 11 Endpoint              Ubuntu SOC Server
+ Windows 11 Pro Endpoint              Ubuntu SOC Server
  192.168.222.131                  192.168.222.130
 
         |                                |
@@ -40,7 +40,7 @@ The lab consists of a Windows endpoint generating security telemetry and an Ubun
 ## Hardware
 
 - Device: Intel MacBook
-- Virtualization Platform: VirtualBox
+- Virtualization Platform: VMware Workstation Pro
 
 The host machine runs the virtualized Windows endpoint and Ubuntu SOC server.
 
@@ -149,7 +149,7 @@ Status: Active
 
 Completed:
 
-- Installed VirtualBox
+- Installed VMware Workstation Pro
 - Created Windows 11 VM
 - Created Ubuntu SOC Server VM
 - Configured internal network communication

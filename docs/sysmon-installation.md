@@ -12,9 +12,9 @@ In this SOC lab, Sysmon is installed on a Windows 11 endpoint to collect securit
 
 | Component | Details |
 |---|---|
-| Host Machine | Intel MacBook |
-| Virtualization Platform | VirtualBox |
-| Endpoint Operating System | Windows 11 Home |
+| Host Machine | Windows 11 Home|
+| Virtualization Platform | VMware Workstation Pro |
+| Endpoint Operating System | Windows 11 Pro |
 | Monitoring Tool | Sysmon |
 | Sysmon Configuration | SwiftOnSecurity Sysmon Configuration |
 

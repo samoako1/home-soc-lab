@@ -1,12 +1,12 @@
 # Home SOC Lab
 
-A cybersecurity home lab built using VirtualBox, Windows 11, Sysmon, and Wazuh to practice security monitoring, event analysis, and threat detection.
+A cybersecurity home lab built using VMware Workstation Pro, Windows 11, Sysmon, and Wazuh to practice security monitoring, event analysis, and threat detection.
 
 ## Current Environment
 
-- Host: Intel MacBook
-- Virtualization: VirtualBox
-- Endpoint: Windows 11 Home
+- Host: Windows 11 Home
+- Virtualization: VMware Workstation Pro
+- Endpoint: Windows 11 Pro
 - Monitoring: Sysmon
 - SIEM: Wazuh (planned)
 
@@ -21,7 +21,7 @@ A cybersecurity home lab built using VirtualBox, Windows 11, Sysmon, and Wazuh t
 
 ## Completed
 
-- [x] Installed VirtualBox
+- [x] Installed VMware Workstation Pro
 - [x] Created Windows 11 VM
 - [x] Installed Sysmon
 - [x] Verified Sysmon Event ID 1 logging

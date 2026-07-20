@@ -1,67 +1,208 @@
 # Home SOC Lab Setup
 
-## Objective
+## Overview
 
-The objective of this project is to build a home Security Operations Center (SOC) environment to practice endpoint monitoring, security event analysis, and threat detection.
+This document explains the setup and architecture of the Home SOC Lab environment.
 
-The lab simulates a small enterprise environment where security telemetry is collected from a Windows endpoint and analyzed for suspicious activity.
+The lab consists of a Windows endpoint generating security telemetry and an Ubuntu-based SOC server collecting, analyzing, and visualizing security events through Wazuh.
 
-## Current Environment
+---
 
-### Host Machine
+# Lab Architecture
 
-- Operating System: macOS
-- Processor: Intel
-- Virtualization Platform: VirtualBox
+```
+                 Host Machine
+                    Windows 11 Home
 
-### Virtual Machines
+                         |
+                         |
+                 VMware Workstation Pro
 
-#### Windows Endpoint
+        +--------------------------------+
+        |                                |
+        |                                |
+ Windows 11 Pro Endpoint              Ubuntu SOC Server
+ 192.168.222.131                  192.168.222.130
 
-Purpose:
+        |                                |
+        |                                |
+  Wazuh Agent                     Wazuh Manager
+  Sysmon                          Filebeat
+  Windows Logs                    Elasticsearch
+                                  Wazuh Dashboard
+
+```
+
+---
+
+# Host Machine
+
+## Hardware
+
+- Device: Intel MacBook
+- Virtualization Platform: VMware Workstation Pro
+
+The host machine runs the virtualized Windows endpoint and Ubuntu SOC server.
+
+---
+
+# Windows Endpoint
+
+## Purpose
+
+The Windows virtual machine acts as the monitored endpoint within the SOC environment.
+
+It is used to:
+
 - Generate security events
-- Collect endpoint telemetry
-- Simulate user activity and security scenarios
+- Execute test scenarios
+- Provide endpoint telemetry
+- Simulate attacker activity
 
-Configuration:
+## Configuration
+
 - Operating System: Windows 11 Home
-- Monitoring Tool: Sysmon
+- Monitoring Tools:
+  - Sysmon
+  - Wazuh Agent
 
-#### SOC Server 
+## Data Sources Collected
 
-Purpose:
-- Centralize security logs
-- Create alerts
-- Analyze endpoint activity
+### Sysmon
 
-Planned Technology:
-- Ubuntu Server
-- Wazuh SIEM
+Provides detailed endpoint telemetry including:
 
-## Completed Setup
+- Process creation
+- Command-line execution
+- Parent-child process relationships
+- File creation activity
 
-- [x] Installed VirtualBox
-- [x] Created Windows 11 virtual machine
-- [x] Installed Sysmon
-- [x] Verified Sysmon service is running
-- [x] Verified Sysmon Event ID 1 process creation logging
-- [x] Captured PowerShell execution telemetry
+### Windows Security Logs
 
-## Planned Improvements
+Provides authentication and system activity including:
 
-- [ ] Configure Windows security auditing
-- [ ] Create failed login detection scenario
-- [ ] Create account creation detection scenario
-- [ ] Add suspicious process investigations
-- [ ] Deploy Wazuh SIEM
-- [ ] Forward Windows logs to centralized monitoring
-- [ ] Create security dashboards and alerts
+- Failed login attempts
+- User account creation
+- Event log clearing
 
-## Skills Practiced
+---
 
-- Virtual machine deployment
-- Windows endpoint administration
-- Sysmon configuration
-- Event log analysis
-- PowerShell monitoring
-- Security investigation workflows
+# SOC Server
+
+## Purpose
+
+The Ubuntu SOC server acts as the centralized monitoring platform.
+
+Responsibilities:
+
+- Receive endpoint telemetry
+- Analyze security events
+- Generate alerts
+- Provide investigation dashboards
+
+## Configuration
+
+- Operating System: Ubuntu Server 24.04 LTS
+- SIEM: Wazuh
+
+Installed Components:
+
+- Wazuh Manager
+- Filebeat
+- Elasticsearch
+- Wazuh Dashboard
+
+---
+
+# Wazuh Agent Configuration
+
+The Windows endpoint communicates with the SOC server through the Wazuh Agent.
+
+Agent Information:
+
+| Field | Value |
+|---|---|
+| Agent Name | homelab |
+| Agent ID | 001 |
+| Operating System | Windows 11 |
+| IP Address | 192.168.222.131 |
+
+Verification command:
+
+```bash
+sudo /var/ossec/bin/agent_control -l
+```
+
+Expected result:
+
+```
+ID: 001
+Name: homelab
+Status: Active
+```
+
+---
+
+# Installation Workflow
+
+## 1. Virtualization Setup
+
+Completed:
+
+- Installed VMware Workstation Pro
+- Created Windows 11 VM
+- Created Ubuntu SOC Server VM
+- Configured internal network communication
+
+---
+
+## 2. Windows Monitoring Setup
+
+Installed:
+
+- Sysmon
+- Wazuh Agent
+
+Verified:
+
+- Sysmon Event ID 1 process logging
+- Windows security event collection
+- Agent communication with Wazuh Manager
+
+---
+
+## 3. Wazuh Deployment
+
+Configured:
+
+- Wazuh Manager
+- Filebeat integration
+- Elasticsearch indexing
+- Wazuh Dashboard access
+
+Verified:
+
+- Windows endpoint appears in Wazuh
+- Security alerts generated
+- Event data searchable through dashboard
+
+---
+
+# Network Configuration
+
+| System | IP Address | Role |
+|---|---|---|
+| Windows Endpoint | 192.168.222.131 | Security telemetry source |
+| Ubuntu SOC Server | 192.168.222.130 | SIEM and analysis platform |
+
+---
+
+# Future Improvements
+
+Potential additions:
+
+- Add additional Windows endpoints
+- Create custom Wazuh detection rules
+- Add malware simulation scenarios
+- Configure automated incident response
+- Integrate threat intelligence feeds

@@ -33,7 +33,7 @@ Wazuh successfully collected and indexed Windows Security Event ID 4625 from the
 
 ## Evidence
 See screenshots in:
-screenshots/security-events/
+failed-logon
 
 ## Outcome
 Successfully demonstrated centralized detection and investigation of failed login attempts using Wazuh.

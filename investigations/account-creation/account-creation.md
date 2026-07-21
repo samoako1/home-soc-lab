@@ -26,7 +26,7 @@ Wazuh successfully detected the creation of a new local user account and forward
 - T1136 - Create Account
 
 ## Evidence
-See screenshots in screenshots/security-events/
+See screenshots in account-creation
 
 ## Outcome
 Successfully demonstrated centralized detection of account creation activity using Wazuh.

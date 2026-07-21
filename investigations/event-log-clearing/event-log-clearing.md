@@ -60,7 +60,6 @@ This investigation confirmed that:
 
 ## Screenshots
 
-- PowerShell command used to clear the Security log
 - Windows Event Viewer showing Event ID 1102
 - Wazuh alert detecting Security Event Log clearing
 - Wazuh alert details showing MITRE ATT&CK mapping

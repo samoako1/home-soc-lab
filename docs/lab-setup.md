@@ -39,7 +39,7 @@ The lab consists of a Windows endpoint generating security telemetry and an Ubun
 
 ## Hardware
 
-- Device: Intel MacBook
+- Device: Windows 11 Laptop
 - Virtualization Platform: VMware Workstation Pro
 
 The host machine runs the virtualized Windows endpoint and Ubuntu SOC server.

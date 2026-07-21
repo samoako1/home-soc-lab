@@ -74,13 +74,7 @@ The detection demonstrates Wazuh's ability to collect endpoint telemetry and ide
 
 ## Evidence
 
-Screenshots:
-
-- Sysmon Event ID 1 showing PowerShell process creation:
-  - `screenshots/sysmon/`
-
-- Wazuh PowerShell detection alert:
-  - `screenshots/powershell/`
+See screenshots in powershell-execution
 
 ## Outcome
 
